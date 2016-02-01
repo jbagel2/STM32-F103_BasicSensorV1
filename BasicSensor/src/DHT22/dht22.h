@@ -8,6 +8,11 @@
 #ifndef DHT22_H_
 #define DHT22_H_
 
+#include "Time/time.h"
+#include "stm32f10x_exti.h"
+#include "stm32f10x_gpio.h"
+#include "stm32f10x_rcc.h"
+
 typedef struct
 {
 	uint8_t Response;

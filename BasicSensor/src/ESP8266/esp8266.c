@@ -58,7 +58,7 @@ void ESP_WaitForAnswer()
 char *WaitForAnswer_cmd_Buffer;
 char *WaitForAnswer_ans_Buffer;
 //TODO: Need To Change waiting String to be variable from implementation (AT vs NODEMCU_LUA)
-void ESP_WaitForAnswerCMD(char *cmdToWaitFor, uint16_t cmdSize)
+void ESP_WaitForAnswerCMD(const char *cmdToWaitFor, uint16_t cmdSize)
 {
 
 	while(waitingForReponse == 1 && (Millis() - TxWaitForResponse_TimeStmp) < ESP_ResponseTimeout_ms)
@@ -143,7 +143,7 @@ void ESP_SendCommand(ESP_Commands command )
 	}
 	else
 	{
-		ESP_WaitForAnswerCMD(&ESP_COMMAND(command), strlen(ESP_COMMAND(command)));
+		ESP_WaitForAnswerCMD(ESP_COMMAND(command), strlen(ESP_COMMAND(command)));
 	}
 }
 

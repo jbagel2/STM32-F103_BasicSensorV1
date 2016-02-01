@@ -16,6 +16,9 @@ void usart_Config_GPIO(Current_USART *this_usart);
 
 Current_USART USART_StartInit(USART_TypeDef *usart_num, uint32_t baud)
 {
+
+	Active_USART.USART_Num = usart_num;
+
 	if(usart_num == USART1)
 	{
 		Active_USART.USART_GPIO = USART1_PORT;
@@ -78,11 +81,11 @@ void usart_Config_GPIO(Current_USART *this_usart)
 
 void usart_Config_Interrupt(Current_USART *this_usart)
 {
-	Interrupt_Config_USART.NVIC_IRQChannel = USART3_IRQn;
+	Interrupt_Config_USART.NVIC_IRQChannel = this_usart->USART_IRQn;
 	Interrupt_Config_USART.NVIC_IRQChannelPreemptionPriority = 0;
 	Interrupt_Config_USART.NVIC_IRQChannelSubPriority = 0;
 	Interrupt_Config_USART.NVIC_IRQChannelCmd = ENABLE;
 	NVIC_Init(&Interrupt_Config_USART);
 
-	USART_ITConfig(this_usart,USART_IT_RXNE, ENABLE);
+	USART_ITConfig(this_usart->USART_Num,USART_IT_RXNE, ENABLE);
 }

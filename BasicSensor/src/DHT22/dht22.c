@@ -1,8 +1,6 @@
-#include "stm32f10x_exti.h"
-#include "stm32f10x_gpio.h"
-#include "stm32f10x_rcc.h"
+
 #include "DHT22/dht22.h"
-#include "Time/time.h"
+
 
 #define DHT22_Pin GPIO_Pin_14
 

@@ -105,7 +105,7 @@ void ESP_On();
 void ESP_Off();
 void ESP_SendCommand(ESP_Commands command );
 void ESP_WaitForAnswer();
-void ESP_WaitForAnswerCMD(char *cmdToWaitFor, uint16_t cmdSize);
+void ESP_WaitForAnswerCMD(const char *cmdToWaitFor, uint16_t cmdSize);
 void ESP_CloseConnection(uint8_t connectionNum);
 void ESP_SendCustomCommand(char *customMessage);
 void ESP_SendCustomCommand_External_Wait(char *customMessage);

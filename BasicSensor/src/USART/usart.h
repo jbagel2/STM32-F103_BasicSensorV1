@@ -25,7 +25,8 @@
 #define USART1_RX GPIO_Pin_10
 
 typedef struct{
-	GPIO_TypeDef * USART_GPIO;
+	GPIO_TypeDef* USART_GPIO;
+	USART_TypeDef* USART_Num;
 	uint16_t Tx_Pin;
 	uint16_t Rx_Pin;
 	uint8_t USART_IRQn;
